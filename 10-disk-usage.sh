@@ -1,6 +1,6 @@
 #!bin/bash
 
-DISK_USAGE=$( df -hT | grep -v Filesystem )
+DISK_USAGE=$(df -hT | grep -v Filesystem)
 USAGE_THRESHOLD=10
 
 while IFS= read -r line
@@ -10,6 +10,8 @@ do
     if [ "$USAGE" -ge "$USAGE_THRESHOLD" ]; then
       MESSAGE+="High disk usage on $PARTITION: $USAGE \n"
     fi
-    echo -e "MESSAGE"
-done
+    
+done <<< "$DISK_USAGE
+
+echo -e "$MESSAGE"
 
