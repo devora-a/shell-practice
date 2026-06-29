@@ -35,6 +35,17 @@ done <<< "$FILES"
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 ARCHIEVE_FILE="$DEST_DIR/logs-archieve-$TIMESTAMP.tar.gz"
 
-tar -czvf $ARCHIEVE_FILE $FILES
+tar -czvf $ARCHIEVE_FILE $
 
+if [ $? -eq 0 ]; then
+   echo "archieval is success, deleting the files"
+   while IFS= read -r FILE
+   do
+       rm -r $FILE
+       echo "deleted file: $FILE"
+    done <<< "$FILES"
+else
+   echo "ERROR:: Archieval is failed"
+   exit 1
+fi          
 
