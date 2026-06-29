@@ -28,8 +28,13 @@ if [ -Z $FILES ]; then
 fi
 
 while IFS= read -r $FILES
-do
+do  
   echo "$FILES"
 done <<< "$FILES"
+ 
+TIMESTAMP=$(date +%y-%m-%d-%H-%M-%S)
+ARCHIEVE_FILE="$DEST_DIR/logs-archieve-$TIMESTAMP.tar.gz"
+
+tar -czvf $AECHIEVE_FILE $FILES
 
 
