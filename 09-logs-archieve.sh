@@ -20,7 +20,7 @@ if [ ! -d $DEST_DIR ]; then
    exit 1
 fi
 
-FILES=$( find $SOURCE_DIR -type f -name "*.log" -mtime +$DAYS )
+FILES=$( find "$SOURCE_DIR" -type f -name "*.log" -mtime +$DAYS )
 
 if [ -z $FILES ]; then
    echo "Logs files older then 14 days not found nothing to do"
