@@ -11,7 +11,6 @@ do
       MESSAGE+="High disk usage on $PARTITION: $USAGE \n"
     fi
     
-done <<< "$DISK_USAGE
+done <<< "$DISK_USAGE"
 
 echo -e "$MESSAGE"
-
